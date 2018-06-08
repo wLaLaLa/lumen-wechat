@@ -88,9 +88,6 @@ $app->singleton(
  $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
  // easy wechat
  $app->register(Overtrue\LaravelWeChat\ServiceProvider::class);
- // users
- $app->register(\App\Providers\Repository\UserRepositoryProvider::class);
-
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes

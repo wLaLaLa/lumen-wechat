@@ -29,7 +29,7 @@ $api->group([
     });
 
     // 无需jwt验证的路由
-    $api->get('auth', 'ExampleController@index');
+    $api->get('auth', 'Auth\AuthController@login');
     $api->get('user', 'ExampleController@user');
 
     // 需要jwt验证的路由
