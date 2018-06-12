@@ -15,5 +15,5 @@ interface ActionInterface
      * @param array $request
      * @return mixed
      */
-    public function handle($request= []);
+    public function handle($request = null);
 }

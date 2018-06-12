@@ -20,13 +20,20 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\User\UserRepository'
         );
 
+//        $this->app->bind(MiniProgramLogin::class, function ($app) {
+//            return new MiniProgramLogin(Factory::miniProgram(config('wechat.mini_program.default')));
+//        });
         $this->app->bind(MiniProgramLogin::class, function ($app) {
-            return new MiniProgramLogin(Factory::miniProgram(config('wechat.mini_program.default')));
+            return new MiniProgramLogin(Factory::officialAccount(config('wechat.official_account.default')));
         });
 
+//        $this->app->bind(
+//            'App\Contracts\Action\LoginInterface',
+//            'App\Actions\Login\MiniProgramLogin'
+//        );
         $this->app->bind(
             'App\Contracts\Action\LoginInterface',
-            'App\Actions\Login\MiniProgramLogin'
+            'App\Actions\Login\OfficialAccountLogin'
         );
     }
 }

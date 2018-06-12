@@ -22,10 +22,10 @@ class LoginAction implements ActionInterface
     }
 
     /**
-     * @param array $request
+     * @param $request
      * @return mixed
      */
-    public function handle($request=[])
+    public function handle($request = null)
     {
         return $this->login->login($request);
     }

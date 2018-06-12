@@ -17,8 +17,8 @@ interface LoginInterface
 {
     /**
      * 登陆
-     * @param $info
+     * @param $request
      * @return mixed
      */
-    public function login($info);
+    public function login($request = null);
 }

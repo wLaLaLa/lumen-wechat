@@ -22,28 +22,26 @@ class MiniProgramLogin implements LoginInterface
     /**
      * @var Application
      */
-    protected $app;
+    protected $mini_program;
 
     /**
      * MiniProgrmLogin constructor.
-     * @param Application $app
+     * @param Application $mini_program
      */
-    public function __construct(Application $app)
+    public function __construct(Application $mini_program)
     {
-        $this->app = $app;
+        $this->mini_program = $mini_program;
     }
 
     /**
-     * @param $info
+     * @param $request
      * @return \Illuminate\Support\Collection
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function login($info)
+    public function login($request = null)
     {
-        $response = $this->app->auth->session($info['code']);
-//        $response = json_decode(json_encode(['session_key' => 'asdfs']));
+        $response = $this->mini_program->auth->session($request->code);
         $response = ResponseParse::parse($response);
-        dd($response);
         return collect(['session_key' => encrypt($response['session_key'])]);
     }
 }

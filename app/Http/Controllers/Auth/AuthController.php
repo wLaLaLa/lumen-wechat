@@ -17,7 +17,7 @@ class AuthController extends Controller
 {
     public function login(Request $request, LoginAction $action)
     {
-        $collect = $action->handle($request->all());
+        $collect = $action->handle($request);
         return $this->response->array($collect);
     }
 }
